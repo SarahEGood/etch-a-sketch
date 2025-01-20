@@ -1,3 +1,11 @@
+function chooseColor() {
+    colors = ["orange", "blue", "red", 'green', "purple"];
+    colorVal = Math.floor(Math.random() * 5);
+    console.log(colors[colorVal]);
+
+    return colors[colorVal];
+}
+
 function makeRow(columns){
     container = document.getElementById('container');
     newDiv = document.createElement('div');
@@ -10,7 +18,8 @@ function makeRow(columns){
         squareDiv.classList.add('square')
         squareDiv.addEventListener('mouseover', function( event ) {
             console.log('clicky!', event.type, event.target);
-            event.target.setAttribute("style","background-color:orange;");
+            colorValue = chooseColor();
+            event.target.setAttribute("style",`background-color:${colorValue};`);
         });
         newDiv.appendChild(squareDiv);
     }
